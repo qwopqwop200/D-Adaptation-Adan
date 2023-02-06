@@ -1,4 +1,4 @@
-# dadapt_adan
+# D-Adaptation Adan
 Learning rate free learning for Adan[https://arxiv.org/abs/2208.06677], currently the most powerful optimizer. 
 
 by D-Adaptation[https://arxiv.org/abs/2301.07733]

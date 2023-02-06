@@ -1,7 +1,7 @@
 # D-Adaptation Adan
-Learning rate free learning for Adan[https://arxiv.org/abs/2208.06677], currently the most powerful optimizer. 
+Learning rate free learning for [Adan](https://arxiv.org/abs/2208.06677), currently the most powerful optimizer. 
 
-by D-Adaptation[https://arxiv.org/abs/2301.07733]
+by [D-Adaptation](https://arxiv.org/abs/2301.07733)
 # Experimental results([cifar-10](https://www.cs.toronto.edu/~kriz/cifar.html))
 All experiments use [ResNet18](https://arxiv.org/abs/1512.03385).
 

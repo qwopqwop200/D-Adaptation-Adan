@@ -2,7 +2,7 @@
 Learning rate free learning for Adan[https://arxiv.org/abs/2208.06677], currently the most powerful optimizer. 
 
 by D-Adaptation[https://arxiv.org/abs/2301.07733]
-# Cifar 10 Accuracy
+# Cifar-10 Accuracy
 All experiments use [ResNet18](https://arxiv.org/abs/1512.03385).
 
 Set to 50 epochs for quick experiment.

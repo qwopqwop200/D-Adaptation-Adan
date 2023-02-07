@@ -6,6 +6,7 @@ by [D-Adaptation](https://arxiv.org/abs/2301.07733)
 All experiments use [ResNet18](https://arxiv.org/abs/1512.03385).
 
 Set to 50 epochs for quick experiment.
+
 | Optimizer | Acc.        |epoch |
 | ----------------- | ----------- | ----------- |
 | [Adam](https://arxiv.org/abs/1412.6980)              | 92.77% | 50|
@@ -14,6 +15,10 @@ Set to 50 epochs for quick experiment.
 | [Adan](https://arxiv.org/abs/2208.06677)              | 92.7% | 50|
 | D-Adapt Adan              | 92.64% | 50|
 | D-Adapt Adan IP             | 93.04% | 50|
+
+
+![fig](https://user-images.githubusercontent.com/64115820/217195448-7202126f-6682-4fb0-9c99-432f534a9c9c.png)
+
 # Acknowledgments
 Many thanks to these excellent opensource projects
 * [D-Adaptation](https://github.com/facebookresearch/dadaptation)

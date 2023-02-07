@@ -77,7 +77,7 @@ class DAdaptAdan(torch.optim.Optimizer):
                         gsq_weighted=0.0,
                         log_every=log_every,
                         growth_rate=growth_rate)
-        
+        self.d0 = d0
         super().__init__(params, defaults)
 
     @property
@@ -91,7 +91,9 @@ class DAdaptAdan(torch.optim.Optimizer):
     @torch.no_grad()
     def restart_opt(self):
         for group in self.param_groups:
-            group['step'] = 0
+            group['k'] = 0
+            group['d'] = self.d0
+            group['gsq_weighted'] = 0.0
             for p in group['params']:
                 if p.requires_grad:
                     state = self.state[p]
@@ -158,6 +160,8 @@ class DAdaptAdan(torch.optim.Optimizer):
                     state['exp_avg_diff'] = torch.zeros_like(p.data, memory_format=torch.preserve_format).detach()
                     # Exponential moving average of squared gradient values
                     state['exp_avg_sq'] = torch.zeros_like(to_real(p.data), memory_format=torch.preserve_format).detach()
+                    
+                if state['step'] == 0:
                     # Previous gradient values
                     state['pre_grad'] = grad.clone()
 

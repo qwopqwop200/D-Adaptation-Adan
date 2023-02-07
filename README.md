@@ -39,7 +39,7 @@ python main.py --opt d-adan #[adam,adan,d-adam,d-adam-ip,d-adan,d-adan-ip]
 
 # Pseudo code
 <img width="587" alt="pseudo" src="https://user-images.githubusercontent.com/64115820/217240449-6efb84aa-0982-4d01-9d54-6b405ca48439.png">
-where λ is the weight decay.
+where λ is the weight decay constant.
 
 # Acknowledgments
 Many thanks to these excellent opensource projects

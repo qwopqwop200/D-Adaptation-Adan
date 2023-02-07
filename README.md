@@ -12,11 +12,13 @@ Experiments tips are based on [Adan](https://github.com/sail-sg/Adan) and [D-Ada
 * If you encounter divergence early on, and are not already using learning rate warmup, try change growth_rate to match a reasonable warmup schedule rate for your problem.
 * D-Adaptation Adan is relatively robust to `beta1`, `beta2,` and `beta3`, especially for `beta2`. If you want better performance, you can first tune `beta3` and then `beta1`.
 * D-Adaptation Adan's `weight_decay` recommends 0.02.
-* Like Adan, we don't use a  restart strategy to make D-Adaptation Adan simpler. But the restart strategy can further slightly improve the performance of D-Adaptation Adan.
 # Experiments results([cifar-10](https://www.cs.toronto.edu/~kriz/cifar.html))
 All experiments use [ResNet18](https://arxiv.org/abs/1512.03385).
 
 Set to 50 epochs for quick experiments.
+
+Like Adan, we don't use a restart strategy to make D-Adaptation Adan simpler. But the restart strategy can further slightly improve the performance of D-Adaptation Adan.
+
 | Optimizer | Acc.        |epoch |
 | ----------------- | ----------- | ----------- |
 | [Adam](https://arxiv.org/abs/1412.6980)              | 92.77% | 50|

@@ -15,6 +15,8 @@ Experiments tips are based on [Adan](https://github.com/sail-sg/Adan) and [D-Ada
 # Experiments results([cifar-10](https://www.cs.toronto.edu/~kriz/cifar.html))
 All experiments use [ResNet18](https://arxiv.org/abs/1512.03385).
 
+Like Adan, we don't use a restart condition to make d-Adan simpler.
+
 Set to 50 epochs for quick experiments.
 | Optimizer | Acc.        |epoch |
 | ----------------- | ----------- | ----------- |

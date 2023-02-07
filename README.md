@@ -16,7 +16,6 @@ Experiments tips are based on [Adan](https://github.com/sail-sg/Adan) and [D-Ada
 All experiments use [ResNet18](https://arxiv.org/abs/1512.03385).
 
 Set to 50 epochs for quick experiments.
-
 | Optimizer | Acc.        |epoch |
 | ----------------- | ----------- | ----------- |
 | [Adam](https://arxiv.org/abs/1412.6980)              | 92.77% | 50|
@@ -28,6 +27,13 @@ Set to 50 epochs for quick experiments.
 
 
 ![fig](https://user-images.githubusercontent.com/64115820/217195448-7202126f-6682-4fb0-9c99-432f534a9c9c.png)
+
+# Run experiment
+```
+git clone https://github.com/qwopqwop200/dadapt_adan.git
+cd dadapt_adan/test
+python main.py --opt d-adan #[adam,adan,d-adam,d-adam-ip,d-adan,d-adan-ip]
+```
 
 # Acknowledgments
 Many thanks to these excellent opensource projects

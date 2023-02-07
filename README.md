@@ -10,9 +10,9 @@ Experiments tips are based on [Adan](https://github.com/sail-sg/Adan) and [D-Ada
 * Use the log_every setting to see the learning rate being used (d*lr) and the current D bound.
 * The Adan IP variant implements a tighter D bound, which may help on some problems. The IP variants should be considered experimental.
 * If you encounter divergence early on, and are not already using learning rate warmup, try change growth_rate to match a reasonable warmup schedule rate for your problem.
-* Adan is relatively robust to `beta1`, `beta2,` and `beta3`, especially for `beta2`. If you want better performance, you can first tune `beta3` and then `beta1`.
-* Adan's `weight_decay` recommends 0.02.
-* Like Adan, we don't use a  restart strategy to make D-Adapt Adan simpler. But the restart strategy can further slightly improve the performance of Adan.
+* D-Adapt Adan is relatively robust to `beta1`, `beta2,` and `beta3`, especially for `beta2`. If you want better performance, you can first tune `beta3` and then `beta1`.
+* D-Adapt Adan's `weight_decay` recommends 0.02.
+* Like Adan, we don't use a  restart strategy to make D-Adapt Adan simpler. But the restart strategy can further slightly improve the performance of D-Adapt Adan.
 # Experiments results([cifar-10](https://www.cs.toronto.edu/~kriz/cifar.html))
 All experiments use [ResNet18](https://arxiv.org/abs/1512.03385).
 

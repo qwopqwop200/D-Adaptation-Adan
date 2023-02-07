@@ -13,9 +13,9 @@ Experiments tips are based on [Adan](https://github.com/sail-sg/Adan) and [D-Ada
 * Adan is relatively robust to `beta1`, `beta2,` and `beta3`, especially for `beta2`. If you want better performance, you can first tune `beta3` and then `beta1`.
 * Adan's `weight_decay` recommends 0.02.
 # Experiments results([cifar-10](https://www.cs.toronto.edu/~kriz/cifar.html))
-All experiments use [ResNet18](https://arxiv.org/abs/1512.03385).
+Like Adan, we don't use a restart condition to make D-Adapt Adan simpler.
 
-Like Adan, we don't use a restart condition to make d-Adan simpler.
+All experiments use [ResNet18](https://arxiv.org/abs/1512.03385).
 
 Set to 50 epochs for quick experiments.
 | Optimizer | Acc.        |epoch |

@@ -96,16 +96,12 @@ class DAdaptAdanIP(torch.optim.Optimizer):
     @torch.no_grad()
     def restart_opt(self):
         for group in self.param_groups:
-            group['k'] = 0
-            group['d'] = self.d0
-            group['numerator_weighted'] = 0.0
             for p in group['params']:
                 if p.requires_grad:
                     state = self.state[p]
                     # State initialization
                     
                     state['step'] = 0
-                    state['s'] = torch.zeros_like(p.data, memory_format=torch.preserve_format).detach()
                     # Exponential moving average of gradient values
                     state['exp_avg'] = torch.zeros_like(p.data, memory_format=torch.preserve_format).detach()
                     # Exponential moving average of gradient difference

@@ -56,6 +56,11 @@ The reason the model diverges is because of gsq_weighted(or numerator_weighted).
 If only gsq_weighted(or numerator_weighted) is reset, there is little performance difference from reset with s.
 
 And it doesn't seem like a good choice mathematically.
+
+So I implemented s and gsq_weighted(or numerator_weighted) to be reset together.
+
+As said above, these implementations appear to offer little or no performance benefit.
+
 # Pseudo code
 <img width="485" alt="sudo" src="https://user-images.githubusercontent.com/64115820/217242205-efcb5d6e-9123-4ce4-bf31-3ffcefb002b2.png">
 where λ is the weight decay constant.

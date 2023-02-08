@@ -53,7 +53,7 @@ Also, reset D together causes the model to fall into a local minimum, which is w
 
 The reason the model diverges is because of gsq_weighted(or numerator_weighted).
 
-If only gsq_weighted(or numerator_weighted) is reset, there is little performance difference from reset with s.
+If only gsq_weighted(or numerator_weighted) is reset, there is little performance difference from reset with s and gsq_weighted(or numerator_weighted).
 
 And it doesn't seem like a good choice mathematically.
 

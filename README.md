@@ -12,7 +12,7 @@ Experiments tips are based on [Adan](https://github.com/sail-sg/Adan) and [D-Ada
 * If you encounter divergence early on, and are not already using learning rate warmup, try change growth_rate to match a reasonable warmup schedule rate for your problem.
 * D-Adaptation Adan is relatively robust to `beta1`, `beta2,` and `beta3`, especially for `beta2`. If you want better performance, you can first tune `beta3` and then `beta1`.
 * D-Adaptation Adan's `weight_decay` recommends 0.02.
-* Unlike Adan, D-Adaptation Adan appears to have little or no performance benefit from the restart strategy.
+* Unlike Adan, D-Adaptation Adan appears to have little or no performance benefit from the restart strategy. For this reason, it is recommended not to use the restart strategy.
 # Experiments results([cifar-10](https://www.cs.toronto.edu/~kriz/cifar.html))
 All experiments use [ResNet18](https://arxiv.org/abs/1512.03385).
 
@@ -40,7 +40,22 @@ python main.py --opt d-adan #[adam,adan,d-adam,d-adam-ip,d-adan,d-adan-ip]
 #If you want restart strategy
 python main.py --opt d-adan --restart #[adan,d-adan,d-adan-ip]
 ```
+# Implementation of restart strategy
+The restart strategy gets better performance by resetting the momentum term every N steps.
 
+Adan with restart strategy on cifar10 has a performance advantage.(92.7 -> 93.31)
+
+If you simply reset the momentum term, such as Adan in D-Adaptation Adan, the model diverges.To prevent this, we reset the s and gsq_weighted(or numerator_weighted).
+
+However, there is little or no performance benefit in these cases.
+
+Also, reset D together causes the model to fall into a local minimum, which is why we don't reset D.
+
+The reason the model diverges is because of gsq_weighted(or numerator_weighted).
+
+If only gsq_weighted(or numerator_weighted) is reset, there is little performance difference from reset with s.
+
+And it doesn't seem like a good choice mathematically.
 # Pseudo code
 <img width="485" alt="sudo" src="https://user-images.githubusercontent.com/64115820/217242205-efcb5d6e-9123-4ce4-bf31-3ffcefb002b2.png">
 where λ is the weight decay constant.

@@ -26,6 +26,10 @@ Set to 50 epochs for quick experiments.
 | [Adan](https://arxiv.org/abs/2208.06677)              | 92.7% | 50|
 | D-Adaptation Adan              | 92.64% | 50|
 | D-Adaptation Adan IP             | 93.04% | 50|
+| [Adan with restart](https://arxiv.org/abs/2208.06677)              | 93.31% | 50|
+| D-Adaptation Adan with restart             | 92.8% | 50|
+| D-Adaptation Adan IP with restart           | 92.94% | 50|
+
 
 ![fig](https://user-images.githubusercontent.com/64115820/217195448-7202126f-6682-4fb0-9c99-432f534a9c9c.png)
 

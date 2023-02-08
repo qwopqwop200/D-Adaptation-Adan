@@ -47,9 +47,9 @@ where λ is the weight decay constant.
 # Implementation of restart strategy
 The restart strategy gets better performance by resetting the momentum term every N steps.
 
-However, in normal cases, Adan does not use a restart strategy. Because to make Adan simple and avoid hyper-parameter tuning of the restart strategy (e.g., restart frequency).
+in normal cases, Adan does not use a restart strategy. Because to make Adan simple and avoid hyper-parameter tuning of the restart strategy (e.g., restart frequency).
 
-Adan with restart strategy on cifar10 has a performance advantage.(92.7% -> 93.31%)
+However, Adan with restart strategy on cifar10 has a performance advantage.(92.7% -> 93.31%)
 
 If you simply reset the momentum term, such as Adan in D-Adaptation Adan, the model diverges.To prevent this, we reset the s and gsq_weighted(or numerator_weighted).
 

@@ -40,10 +40,16 @@ python main.py --opt d-adan #[adam,adan,d-adam,d-adam-ip,d-adan,d-adan-ip]
 #If you want restart strategy
 python main.py --opt d-adan --restart #[adan,d-adan,d-adan-ip]
 ```
+# Pseudo code
+<img width="485" alt="sudo" src="https://user-images.githubusercontent.com/64115820/217242205-efcb5d6e-9123-4ce4-bf31-3ffcefb002b2.png">
+where λ is the weight decay constant.
+
 # Implementation of restart strategy
 The restart strategy gets better performance by resetting the momentum term every N steps.
 
-Adan with restart strategy on cifar10 has a performance advantage.(92.7 -> 93.31)
+However, in normal cases, Adan does not use a restart strategy. Because to make Adan simple and avoid hyper-parameter tuning of the restart strategy (e.g., restart frequency).
+
+Adan with restart strategy on cifar10 has a performance advantage.(92.7% -> 93.31%)
 
 If you simply reset the momentum term, such as Adan in D-Adaptation Adan, the model diverges.To prevent this, we reset the s and gsq_weighted(or numerator_weighted).
 
@@ -53,7 +59,7 @@ Also, reset D together causes the model to fall into a local minimum, which is w
 
 The reason the model diverges is because of gsq_weighted(or numerator_weighted).
 
-If only gsq_weighted(or numerator_weighted) is reset, there is little performance difference from reset with s and gsq_weighted(or numerator_weighted).
+If only gsq_weighted(or numerator_weighted) is reset, there is no performance difference from reset with s and gsq_weighted(or numerator_weighted).
 
 And it doesn't seem like a good choice mathematically.
 
@@ -61,9 +67,11 @@ So I implemented s and gsq_weighted(or numerator_weighted) to be reset together.
 
 As said above, these implementations appear to offer little or no performance benefit.
 
-# Pseudo code
-<img width="485" alt="sudo" src="https://user-images.githubusercontent.com/64115820/217242205-efcb5d6e-9123-4ce4-bf31-3ffcefb002b2.png">
-where λ is the weight decay constant.
+| Optimizer | w/o restart       | w restart |
+| ----------------- | ----------- | ----------- |
+| [Adan](https://arxiv.org/abs/2208.06677)              | 92.7% | 93.31% (+0.61%)|
+| D-Adaptation Adan              | 92.64% | 92.8%(+0.16%)|
+| D-Adaptation Adan IP             | 93.04% | 92.94%(-0.1%)|
 
 # Acknowledgments
 Many thanks to these excellent opensource projects

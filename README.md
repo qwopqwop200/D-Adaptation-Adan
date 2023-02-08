@@ -51,6 +51,8 @@ in normal cases, Adan does not use a restart strategy. Because to make Adan simp
 
 However, Adan with restart strategy on cifar10 has a performance advantage.(92.7% -> 93.31%)
 
+D-Adaptation Adan also attempts to apply restart strategy to achieve these benefits.
+
 If you simply reset the momentum term, such as Adan in D-Adaptation Adan, the model diverges.To prevent this, we reset the s and gsq_weighted(or numerator_weighted).
 
 However, there is little or no performance benefit in these cases.

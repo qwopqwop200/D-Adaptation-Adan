@@ -96,7 +96,8 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
     parser.add_argument('--opt', default='adam', type=str, choices=['adam','adan','d-adam','d-adam-ip','d-adan','d-adan-ip'], help='optimizer')
-
+    parser.add_argument('--restart', action='store_true', help='restart strategy in adan' )
+    
     args = parser.parse_args()
 
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -154,13 +155,22 @@ if __name__ == '__main__':
         optimizer = DAdaptAdanIP(net.parameters(), lr=1.0)
     else:
         raise NotImplementedError
-        
+      
+    if args.restart and 'adan' in args.opt: 
+        args.restart = True
+        args.opt += '_restart'
+    else:
+        args.restart = False
+      
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=50)
 
     for epoch in range(start_epoch, 50):
         train(epoch)
         acc = test(epoch,args)
         acc_log.append(acc)
+        if args.restart and (epoch+1) % 10 == 0:
+            print('restart')
+            optimizer.restart_opt()
         scheduler.step()
     print(f'opt:{args.opt},best_acc:{best_acc}')
     
@@ -168,5 +178,4 @@ if __name__ == '__main__':
         for acc in acc_log:
             data = f'{acc}\n'
             f.write(data)
-            
         f.write(f'best_acc:{best_acc}')

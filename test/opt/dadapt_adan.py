@@ -87,7 +87,7 @@ class DAdaptAdan(torch.optim.Optimizer):
     @property
     def supports_flat_params(self):
         return True
-        
+    
     # Experimental implementation of Adan's restart strategy
     @torch.no_grad()
     def restart_opt(self):
